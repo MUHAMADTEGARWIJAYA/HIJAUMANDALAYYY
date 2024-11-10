@@ -1,0 +1,29 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+th, td {
+  min-width: 150px; /* Adjust as necessary */
+}
+
+button {
+  min-width: 30px; /* Or any other value that fits your design */
+}
+
+td {
+  padding: 8px; /* Adjust as necessary */
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Hide scrollbar on WebKit (Chrome/Safari) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar on Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
