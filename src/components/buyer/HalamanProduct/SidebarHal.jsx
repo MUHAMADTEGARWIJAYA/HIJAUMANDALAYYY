@@ -2,7 +2,7 @@
 function Sidebar() {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg w-64 mr-4 max-h-fit">
-      <h2 className="text-xl font-semibold mb-4">Filter Produk</h2>
+      <a href="/productdetail"><h2 className="text-xl font-semibold mb-4">Filter Produk</h2></a>
 
       {/* Filter Harga */}
       <div className="mb-6">

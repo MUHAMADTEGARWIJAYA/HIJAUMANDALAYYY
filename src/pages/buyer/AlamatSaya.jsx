@@ -7,7 +7,7 @@ import {
   ShoppingBag,
   User,
 } from "lucide-react";
-import React from "react";
+
 import { Card } from "../../components/ui/card";
 
 const AlamatSaya = () => {

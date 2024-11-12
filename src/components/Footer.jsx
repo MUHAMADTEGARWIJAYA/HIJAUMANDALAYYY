@@ -3,7 +3,7 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter } from 'react-icons/io5'
 
 const Footer = () => {
   return (
-    <footer className="bg-teal-900 text-white py-10">
+    <footer className="bg-[#1C464F] text-white py-10">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* KambingFresh Description */}
         <div>

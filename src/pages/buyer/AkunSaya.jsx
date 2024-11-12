@@ -7,14 +7,14 @@ import {
   ShoppingBag,
   User,
 } from "lucide-react";
-import React from "react";
+
 import { Card } from "../../components/ui/card";
 
 const AkunSaya = () => {
   // Sidebar menu items
   const menuItems = [
     { icon: User, text: "Akun Saya", active: true },
-    { icon: ShoppingBag, text: "Pesanan Saya" },
+    { icon: ShoppingBag, text: "Pesanan Saya", },
     { icon: MapPin, text: "Alamat Saya" },
     { icon: MessageCircle, text: "Chat" },
     { icon: Bell, text: "Notifikasi" },

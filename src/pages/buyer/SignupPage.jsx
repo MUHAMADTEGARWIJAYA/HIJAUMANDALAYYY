@@ -24,11 +24,6 @@ function Register() {
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         <div className="mb-6">
-          <img
-            src="https://placekitten.com/400/300" // Ganti dengan URL gambar yang sesuai
-            alt="Kambing"
-            className="rounded-lg object-cover w-full"
-          />
         </div>
         <h2 className="text-2xl font-semibold text-center mb-4">
           Daftar Akun KambingFresh

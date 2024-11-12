@@ -1,15 +1,69 @@
+import { useLocation } from 'react-router-dom';
 
 function Navbar() {
+  const location = useLocation();
+
+  // Fungsi untuk menentukan apakah path saat ini aktif
+  const isActive = (path) => location.pathname === path;
+
   return (
     <div className="flex flex-col space-y-2 p-4 bg-gray-100 max-w-6xl">
       <h1 className="text-lg font-semibold">Pesanan Saya</h1>
       <div className="flex space-x-4 text-sm font-medium">
-        <a href="/semua"><button className="text-blue-600 border-b-2 border-blue-600">Semua</button></a>
-       <a href="/belumbayar"> <button className="text-gray-600 hover:text-blue-600">Belum Bayar</button></a>
-        <a href="perludikirim"><button className="text-gray-600 hover:text-blue-600">Perlu Dikirim</button></a>
-       <a href="dikirim"> <button className="text-gray-600 hover:text-blue-600">Dikirim</button></a>
-        <a href="selesai"><button className="text-gray-600 hover:text-blue-600">Selesai</button></a>
-       <a href="dibatalkan"> <button className="text-gray-600 hover:text-blue-600">Pembatalan</button></a>
+        <a href="/semua">
+          <button
+            className={`${
+              isActive('/semua') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Semua
+          </button>
+        </a>
+        <a href="/notbayar">
+          <button
+            className={`${
+              isActive('/notbayar') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Belum Bayar
+          </button>
+        </a>
+        <a href="/perludikirim">
+          <button
+            className={`${
+              isActive('/perludikirim') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Perlu Dikirim
+          </button>
+        </a>
+        <a href="/dikirim">
+          <button
+            className={`${
+              isActive('/dikirim') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Dikirim
+          </button>
+        </a>
+        <a href="/selesai">
+          <button
+            className={`${
+              isActive('/selesai') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Selesai
+          </button>
+        </a>
+        <a href="/dibatalkan">
+          <button
+            className={`${
+              isActive('/dibatalkan') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+            }`}
+          >
+            Pembatalan
+          </button>
+        </a>
       </div>
       <div className="flex space-x-2">
         <select className="border border-gray-300 rounded-md p-2 w-40">

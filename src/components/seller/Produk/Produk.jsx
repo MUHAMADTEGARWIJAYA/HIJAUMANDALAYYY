@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from "react";
 
 const ProductPage = () => {
   // Data produk dalam bentuk array
@@ -8,7 +8,7 @@ const ProductPage = () => {
       name: 'Kambing Boer Uk Sedang',
       price: 'Rp3.000.000',
       stock: 20,
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: '4.jpg',
       sold: 0,
     },
     {
@@ -16,7 +16,7 @@ const ProductPage = () => {
       name: 'Sapi Limousin',
       price: 'Rp20.000.000',
       stock: 5,
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: '4.jpg',
       sold: 2,
     },
     {
@@ -24,11 +24,29 @@ const ProductPage = () => {
       name: 'Ayam Kampung',
       price: 'Rp50.000',
       stock: 100,
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: '4.jpg',
       sold: 25,
     },
     // Tambahkan lebih banyak produk jika diperlukan
   ];
+
+  const [images, setImages] = useState({});
+
+      useEffect(() => {
+        const loadImages = async () => {
+          const importedImages = import.meta.glob('../../../assets/imgs/*.{png,jpg,jpeg,svg}');
+          const imageEntries = await Promise.all(
+            Object.entries(importedImages).map(async ([path, importFunc]) => {
+              const module = await importFunc();
+              const fileName = path.replace('../../../assets/imgs/', ''); // Sesuaikan nama file
+              return [fileName, module.default];
+            })
+          );
+          setImages(Object.fromEntries(imageEntries));
+        };
+    
+        loadImages();
+      }, []);
 
   return (
     <div className=" bg-gray-100 min-h-fit max-w-fit">
@@ -36,7 +54,7 @@ const ProductPage = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold">Produk Saya</h1>
-          <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">+ Tambah Produk Baru</button>
+        <a href="/tambahproduk">  <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">+ Tambah Produk Baru</button></a>
         </div>
 
         {/* Tabs */}
@@ -80,7 +98,7 @@ const ProductPage = () => {
               <div className="flex items-start">
                 <input type="checkbox" className="mr-2" />
                 <img
-                  src={product.imageUrl}
+                  src={images[product.imageUrl]}
                   alt={product.name}
                   className="w-full h-40 object-cover rounded-lg"
                 />
@@ -90,7 +108,7 @@ const ProductPage = () => {
                 <p className="text-red-500 font-bold">{product.price}</p>
                 <p className="text-gray-600">Stok {product.stock}</p>
                 <div className="flex items-center mt-2">
-                  <button className="text-green-600 bg-green-100 px-2 py-1 rounded-lg">Edit</button>
+                  <button className="text-white bg-blue-500 px-2 py-1 rounded-lg">Edit</button>
                   <span className="ml-auto flex items-center space-x-1">
                     <svg className="w-4 h-4 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                       <path d="M2 8h16v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8zm14-6a2 2 0 00-2-2H6a2 2 0 00-2 2v2h12V2z" />

@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'; // Navbar khusus login
 import Header from '../components/buyer/Home/Header'
 import Product from '../components/buyer/Home/Product'
 import Diskon from '../components/buyer/Home/Diskon'
-import Unggulan from '../components/buyer/Home/Unggulan'
+// import Unggulan from '../components/buyer/Home/Unggulan'
 
 const BuyerLayout = () => {
     return (
@@ -15,7 +15,7 @@ const BuyerLayout = () => {
             <Header />
             <Product />
             <Diskon />
-            <Unggulan />
+            {/* <Unggulan /> */}
 
             <Footer />
           

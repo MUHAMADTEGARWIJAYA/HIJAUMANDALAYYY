@@ -32,11 +32,12 @@ import AlamatSaya from "./pages/buyer/AlamatSaya";
 import BelumBayar from "./pages/buyer/BelumBayar";
 import BerhasilBayar from "./pages/buyer/BerhasilBayar";
 import DetailPembayaran from "./pages/buyer/DetailPembayaran";
-import Pemesanan from "./pages/buyer/Pemesanan";
+
 import PesananSaya from "./pages/buyer/PesananSaya";
 import ProductDetailPage from "./pages/buyer/ProductDetailPage";
-
-
+import DetailProdukLay from './layout/DetailProdukLay'
+import Succes from './pages/seller/Succes'
+import Pemesanan from './layout/PemesananLay'
 
 
 function App() {
@@ -56,6 +57,11 @@ function App() {
                 <Route element={<HalLayout />}>
                     <Route path="/halamanproduk" element={<div />}/>
                 </Route>
+
+                {/* Ini pemesanan */}
+                <Route element={<Pemesanan />}>
+                    <Route path="/pemesanan" element={<div />}/>
+                </Route>
                 {/* Universal Layout */}
                 <Route element={<Universal />}>
                     <Route path="/keranjang" element={<Keranjang />}/>
@@ -64,12 +70,14 @@ function App() {
                     <Route path="/detailpesanan" element={<DetailPesanan />}/>
                     <Route path="/detailpembayaran" element={<DetailPembayaran />} />
                     <Route path="/belumbayar" element={<BelumBayar />} />
-                    <Route path="/productdetailpage" element={<ProductDetailPage />} />
-                    <Route path="/pemesanan" element={<Pemesanan />} />
+                    <Route path="/productdetail" element={<ProductDetailPage />} />
+                 
                     <Route path="/alamatsaya" element={<AlamatSaya />} />
                     <Route path="/akunsaya" element={<AkunSaya />} />
                     <Route path="/berhasilbayar" element={<BerhasilBayar />} />
                     <Route path="/pesanansaya" element={<PesananSaya />} />
+                    <Route path="/sukses" element={<Succes />} />
+                    
                 </Route>
 
                 {/* Home sidebarSeller*/}
@@ -77,10 +85,15 @@ function App() {
                   <Route path="/home" element={<div />}/>
                 </Route>
 
+                <Route element={<DetailProdukLay />}>
+                  <Route path="/detailproduk" element={<div />}/>
+                </Route>
+
+
                {/* Produk Sidebar Seller */}
                <Route element={<PesananLayout />}>
                  <Route path="/semua" element={<Semua />}/>
-                 <Route path="/belumbayar" element={<NotBayar />}/>
+                 <Route path="/notbayar" element={<NotBayar />}/>
                  <Route path="/dibatalkan" element={<Dibatalkan />}/>
                  <Route path="/perludikirim" element={<PerluDikirim />}/>
                  <Route path="/dikirim" element={<Dikirim />}/>

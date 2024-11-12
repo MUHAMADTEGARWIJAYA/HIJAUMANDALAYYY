@@ -31,12 +31,12 @@ function VerifikasiToko() {
           </div>
 
           {/* Tombol Verifikasi */}
-          <button
+         <a href="/sukses"> <button
             type="submit"
             className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
           >
             Verifikasi
-          </button>
+          </button></a>
 
           {/* Informasi Tambahan */}
           <p className="text-center text-gray-600 text-sm mt-6">

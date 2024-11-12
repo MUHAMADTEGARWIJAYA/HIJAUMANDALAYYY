@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Content() {
   // Daftar produk
   const products = [
-    { id: 1, name: "Kambing Kacang (Ukuran Kecil)", price: "Rp. 2.400.000", image: "https://placekitten.com/200/200", farm: "Peternakan Al-Amin", rating: 4.5 },
-    { id: 2, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/201/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 3, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/202/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 4, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/203/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 5, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/204/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 6, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/205/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 7, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/206/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 8, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/207/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 9, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/208/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 10, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/209/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 11, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/210/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 12, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/211/200", farm: "Peternakan Al-Amin", rating: 4 },
-    { id: 13, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "https://placekitten.com/212/200", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 1, name: "Kambing Kacang (Ukuran Kecil)", price: "Rp. 2.400.000", image: "5.jpg", farm: "Peternakan Al-Amin", rating: 4.5 },
+    { id: 2, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "4.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 3, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "5.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 4, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "6.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 5, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "7.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 6, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "8.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 7, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "5.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 8, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "1.png", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 9, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "2.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 10, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "5.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 11, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "8.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 12, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "7.jpg", farm: "Peternakan Al-Amin", rating: 4 },
+    { id: 13, name: "Kambing Boer (Ukuran Sedang)", price: "Rp. 3.000.000", image: "1.png", farm: "Peternakan Al-Amin", rating: 4 },
     // Tambahkan lebih banyak produk jika diperlukan
   ];
 
@@ -35,13 +35,31 @@ function Content() {
     setCurrentPage(pageNumber);
   };
 
+  const [images, setImages] = useState({});
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const importedImages = import.meta.glob('../../../assets/imgs/*.{png,jpg,jpeg,svg}');
+      const imageEntries = await Promise.all(
+        Object.entries(importedImages).map(async ([path, importFunc]) => {
+          const module = await importFunc();
+          const fileName = path.replace('../../../assets/imgs/', ''); // Sesuaikan nama file
+          return [fileName, module.default];
+        })
+      );
+      setImages(Object.fromEntries(imageEntries));
+    };
+
+    loadImages();
+  }, []);
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg flex-1 ">
+    <div className="bg-white p-4 rounded-lg shadow-lg max-w-6xl flex-1 ">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {currentProducts.map((product) => (
           <div key={product.id} className="bg-gray-50 rounded-lg p-4 shadow-md">
             <img
-              src={product.image}
+              src={images[product.image]}
               alt={product.name}
               className="w-full h-40 object-cover rounded-lg mb-4"
             />

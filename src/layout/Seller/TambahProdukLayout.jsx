@@ -1,7 +1,7 @@
 import Footer from '../../components/Footer';
 import NavSeller from '../../components/NavSeller';
 import SidebarSeller from '../../components/SidebarSeller'
-import TambahPesanan from '../../components/seller/TambahPesanan/TambahPesanan'
+import TambahProduk from '../../components/seller/TambahProduk/TambahProduk'
 
 const HomeLayout = () => {
     return (
@@ -14,7 +14,7 @@ const HomeLayout = () => {
             <div className="flex flex-1 p-4 gap-4">
                 <SidebarSeller className="w-1/4" /> 
                 <div className="flex-1">
-                <TambahPesanan  /> 
+                <TambahProduk  /> 
                 </div>
             </div>
           

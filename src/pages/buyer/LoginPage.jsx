@@ -1,4 +1,25 @@
+import { useState, useEffect  } from "react";
+
 const Login = () => {
+
+  const [images, setImages] = useState({});
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const importedImages = import.meta.glob('../imgs/*.{png,jpg,jpeg,svg}');
+      const imageEntries = await Promise.all(
+        Object.entries(importedImages).map(async ([path, importFunc]) => {
+          const module = await importFunc();
+          const fileName = path.replace('../imgs/', ''); // Sesuaikan nama file
+          return [fileName, module.default];
+        })
+      );
+      setImages(Object.fromEntries(imageEntries));
+    };
+
+    loadImages();
+  }, []);
+
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white rounded-lg shadow-md flex max-w-4xl w-full">
@@ -6,16 +27,16 @@ const Login = () => {
           {/* Bagian Kiri dengan Gambar */}
           <div className="w-1/2">
             <img
-              src="https://source.unsplash.com/600x800/?goat,animal"
+              src={images["5.jpg"]}
               alt="Goat"
               className="w-full h-full object-cover rounded-l-lg"
             />
           </div>
           
           {/* Bagian Kanan dengan Form Login */}
-          <div className="w-1/2 p-8 bg-gray-100 rounded-r-lg">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Masuk ke KambingFresh</h2>
-            <p className="text-gray-600 mb-6">Silahkan Masukkan Email dan Kata Sandi</p>
+          <div className="w-1/2 p-8 bg-gray-100 rounded-r-lg justify-center items-center">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2 ml-12">Masuk ke KambingFresh</h2>
+            <p className="text-gray-600 mb-6 ml-10">Silahkan Masukkan Email dan Kata Sandi</p>
             
             <form>
               <div className="mb-4">
@@ -49,7 +70,7 @@ const Login = () => {
               <a href="/utama" className="w-full">
                     <button
                       type="button"
-                      className="w-full bg-green-800 text-white py-2 px-4 rounded-lg hover:bg-green-900 transition duration-300"
+                      className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-900 transition duration-300"
                     >
                       Masuk
                     </button>

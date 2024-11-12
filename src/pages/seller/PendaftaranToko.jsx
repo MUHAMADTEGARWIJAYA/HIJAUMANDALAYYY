@@ -42,7 +42,7 @@ function PendaftaranToko() {
 
           {/* Input File untuk SKU */}
           <div>
-            <label className="block text-gray-700">Surat Keterangan Usaha (SKU)</label>
+           <a href="/verifikasi"> <label className="block text-gray-700">Surat Keterangan Usaha (SKU)</label></a>
             <input
               type="file"
               className="w-full p-3 border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
@@ -62,12 +62,12 @@ function PendaftaranToko() {
             </a>{' '}
             Pendaftaran Toko.
           </div>
-          <button
-            type="submit"
+          <a href="/verifikasi"><button
+            
             className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
           >
             Lanjut
-          </button>
+          </button></a>
         </form>
       </div>
     </div>
