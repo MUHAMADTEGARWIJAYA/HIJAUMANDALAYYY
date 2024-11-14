@@ -6,11 +6,11 @@ const Login = () => {
 
   useEffect(() => {
     const loadImages = async () => {
-      const importedImages = import.meta.glob('../imgs/*.{png,jpg,jpeg,svg}');
+      const importedImages = import.meta.glob('../../assets/imgs/*.{png,jpg,jpeg,svg}');
       const imageEntries = await Promise.all(
         Object.entries(importedImages).map(async ([path, importFunc]) => {
           const module = await importFunc();
-          const fileName = path.replace('../imgs/', ''); // Sesuaikan nama file
+          const fileName = path.replace('../../assets/imgs/', ''); // Sesuaikan nama file
           return [fileName, module.default];
         })
       );
