@@ -1,6 +1,24 @@
-
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
+
+  const [images, setImages] = useState({});
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const importedImages = import.meta.glob('../assets/imgs/*.{png,jpg,jpeg,svg}');
+      const imageEntries = await Promise.all(
+        Object.entries(importedImages).map(async ([path, importFunc]) => {
+          const module = await importFunc();
+          const fileName = path.replace('../assets/imgs/', ''); // Sesuaikan nama file
+          return [fileName, module.default];
+        })
+      );
+      setImages(Object.fromEntries(imageEntries));
+    };
+
+    loadImages();
+  }, []);
   return (
     <nav className="bg-teal-900 px-6 py-4 flex items-center justify-between">
       {/* Logo and Title */}
@@ -25,7 +43,7 @@ const Navbar = () => {
         <button className="text-white">🔔</button>
         <div className="flex items-center text-white">
           <img 
-            src="https://via.placeholder.com/30" 
+            src={images["5.jpg"]} 
             alt="profile" 
             className="w-8 h-8 rounded-full mr-2"
           />

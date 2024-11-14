@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { IoIosSearch, IoIosMenu, IoMdCart, IoMdNotifications } from 'react-icons/io';
+import { IoIosSearch, IoMdCart, IoMdNotifications } from 'react-icons/io';
+import { AiTwotoneShop } from "react-icons/ai";
 
 const Navbar = () => {
   const [images, setImages] = useState({});
@@ -38,7 +39,7 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-between p-4 bg-[#1C464F] text-white shadow-md">
+      <div className="flex items-center justify-between p-4 bg-teal-800 text-white shadow-md">
         {/* Logo dan Nama Brand */}
         <div className="flex items-center space-x-2">
           <img src={images["2.jpg"]} alt="Logo" className="h-8 w-8" />
@@ -62,7 +63,7 @@ const Navbar = () => {
             className="text-gray-300 hover:text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle popup
           >
-            <IoIosMenu className="w-6 h-6" />
+            <AiTwotoneShop className="w-6 h-6" />
           </button>
 
           <a href="/keranjang">
@@ -77,7 +78,7 @@ const Navbar = () => {
           {/* Nama Pengguna */}
           <div className="flex items-center space-x-2">
             <img src={images["7.jpg"]} alt="User Avatar" className="w-8 h-8 rounded-full" />
-            <a href="/akunsaya">
+            <a href="/profilebuyyer">
               <span className="text-sm">Hijau Mandala</span>
             </a>
           </div>

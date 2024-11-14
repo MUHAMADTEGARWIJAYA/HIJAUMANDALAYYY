@@ -80,7 +80,7 @@ const ProductPage = () => {
 
         {/* Product Limit */}
         <div className="flex items-center space-x-2 mb-4">
-          <span className="bg-teal-700 text-white px-3 py-1 rounded-lg">Batas Maks. Produk: 50</span>
+          <span className="bg-teal-800 text-white px-3 py-1 rounded-lg">Batas Maks. Produk: 50</span>
         </div>
 
         {/* Sort Options */}

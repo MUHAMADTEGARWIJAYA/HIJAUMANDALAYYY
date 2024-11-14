@@ -32,7 +32,7 @@ function Checkout() {
   };
 
   return (
-    <div className="bg-gray-100 p-6 min-h-fit flex justify-center">
+    <div className="bg-gray-100 min-h-fit flex justify-center">
       <div className="bg-white rounded-lg shadow-md w-full max-w-4xl p-8 flex flex-col items-start">
         <h2 className="text-2xl font-semibold mb-6">Checkout</h2>
         

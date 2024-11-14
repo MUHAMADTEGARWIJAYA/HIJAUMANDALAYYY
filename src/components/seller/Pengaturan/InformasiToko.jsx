@@ -117,6 +117,8 @@ const StoreProfile = () => {
                 className="w-full border border-gray-300 p-2 rounded"
               />
             </div>
+
+            
             <div className="mb-4">
               <label className="block font-semibold mb-2">Domain Toko</label>
               <input 

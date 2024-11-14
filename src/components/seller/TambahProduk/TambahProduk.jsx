@@ -103,7 +103,7 @@ function AddOrderPage() {
           {/* Tombol Submit */}
           <button
             type="submit"
-            className="w-full bg-teal-500 text-white font-semibold py-3 rounded-md hover:bg-teal-600 transition duration-200"
+            className="w-full bg-green-400 text-white font-semibold py-3 rounded-md hover:bg-green-700 transition duration-200"
           >
             Tambah Produk
           </button>

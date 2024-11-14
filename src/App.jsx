@@ -27,17 +27,17 @@ import Rekening from './components/seller/Pengaturan/Rekening'
 import BantuanLayout from './layout/Seller/BantuanLayout';
 import TambahProdukLayout from './layout/Seller/TambahProdukLayout'
 import EdukasiLayout from './layout/Seller/EdukasiLayout';
-import AkunSaya from "./pages/buyer/AkunSaya";
-import AlamatSaya from "./pages/buyer/AlamatSaya";
 import BelumBayar from "./pages/buyer/BelumBayar";
 import BerhasilBayar from "./pages/buyer/BerhasilBayar";
 import DetailPembayaran from "./pages/buyer/DetailPembayaran";
-
-import PesananSaya from "./pages/buyer/PesananSaya";
-import ProductDetailPage from "./pages/buyer/ProductDetailPage";
+import ProfileBuyyer from './layout/ProfileBuyyer/ProfileBuyyerLay'
 import DetailProdukLay from './layout/DetailProdukLay'
 import Succes from './pages/seller/Succes'
 import Pemesanan from './layout/PemesananLay'
+import AlamatBuyyerLay from './layout/ProfileBuyyer/AlamatBuyyerLay'
+import PesananBuyyerLay from './layout/ProfileBuyyer/PesananBuyyerLay'
+import PesananBuyyer from './components/buyer/ProfileBuyyer/PesananBuyyer'
+
 
 
 function App() {
@@ -58,6 +58,25 @@ function App() {
                     <Route path="/halamanproduk" element={<div />}/>
                 </Route>
 
+                {/* SidebarBuyyerProfile */}
+                <Route element={<ProfileBuyyer />}>
+                    <Route path="/profilebuyyer" element={<div />}/>
+                </Route>
+
+                {/* AlamatBuyyer */}
+                <Route element={<AlamatBuyyerLay />}>
+                    <Route path="/alamatprofile" element={<div />}/>
+                </Route>
+
+                {/* Pesanan Buyyer */}
+                <Route element={<PesananBuyyerLay />}>
+                    <Route path="/pesananbuyyer" element={<PesananBuyyer />}/>
+                </Route>
+
+
+
+
+
                 {/* Ini pemesanan */}
                 <Route element={<Pemesanan />}>
                     <Route path="/pemesanan" element={<div />}/>
@@ -70,12 +89,7 @@ function App() {
                     <Route path="/detailpesanan" element={<DetailPesanan />}/>
                     <Route path="/detailpembayaran" element={<DetailPembayaran />} />
                     <Route path="/belumbayar" element={<BelumBayar />} />
-                    <Route path="/productdetail" element={<ProductDetailPage />} />
-                 
-                    <Route path="/alamatsaya" element={<AlamatSaya />} />
-                    <Route path="/akunsaya" element={<AkunSaya />} />
                     <Route path="/berhasilbayar" element={<BerhasilBayar />} />
-                    <Route path="/pesanansaya" element={<PesananSaya />} />
                     <Route path="/sukses" element={<Succes />} />
                     
                 </Route>
@@ -105,7 +119,7 @@ function App() {
                   <Route path="/produk" element={<Produk />}/>
                 </Route>
 
-                {/* ChatLayout */}
+                {/* ChatLayoutseller */}
                 <Route element={<ChatLayout />}>
                   <Route path="/chat" element={<div />}/>
                 </Route>

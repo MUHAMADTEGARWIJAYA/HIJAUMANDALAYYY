@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center relative">
       {/* Back Button */}
-     <a href="/home"> <button className="absolute top-4 left-4 text-white text-xl z-20">&larr; Kembali</button></a>
+     <a href="/home"> <button className="absolute top-4 left-4 text-blue-500 text-xl z-20">&larr; Kembali</button></a>
       
       {/* Header Section */}
       <div className="relative w-full h-[50vh] bg-cover bg-center" style={{ backgroundImage: "url('https://example.com/your-image.jpg')" }}>

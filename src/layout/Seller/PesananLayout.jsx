@@ -11,7 +11,7 @@ const Pesanan = () => {
         <div>
             <NavSeller /> {/* Navbar khusus login */}
             
-             {/* <Outlet /> Halaman login akan dirender di sini */}
+             {/* <Outlet /> Halaman yang ada akan dirender di sini */}
            
              <div className="flex flex-1 p-4 gap-4">
                 <SidebarSeller className="w-1/4" /> 

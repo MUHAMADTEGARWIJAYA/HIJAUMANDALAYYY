@@ -58,7 +58,7 @@ const HelpCenter = () => {
         {/* Search Section */}
         <div className="w-full mb-8">
           <div className="flex justify-start mb-4">
-            <a href="/home"><button className="text-gray-500">&larr; Kembali</button></a>
+            <a href="/home"><button className="text-blue-500">&larr; Kembali</button></a>
           </div>
           <h1 className="text-2xl font-semibold text-center mb-4">Halo, ada yang bisa kami bantu?</h1>
           <input

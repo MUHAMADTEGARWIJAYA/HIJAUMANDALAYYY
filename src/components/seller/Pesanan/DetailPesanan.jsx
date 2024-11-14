@@ -1,16 +1,33 @@
-
+import { useState, useEffect } from "react";
 
 const OrderDetail = () => {
+  const [images, setImages] = useState({});
+
+      useEffect(() => {
+        const loadImages = async () => {
+          const importedImages = import.meta.glob('../../../assets/imgs/*.{png,jpg,jpeg,svg}');
+          const imageEntries = await Promise.all(
+            Object.entries(importedImages).map(async ([path, importFunc]) => {
+              const module = await importFunc();
+              const fileName = path.replace('../../../assets/imgs/', ''); // Sesuaikan nama file
+              return [fileName, module.default];
+            })
+          );
+          setImages(Object.fromEntries(imageEntries));
+        };
+    
+        loadImages();
+      }, []);
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-3xl p-6 bg-gray-100">
-        <button className="mb-4 text-blue-600 hover:underline">← Back</button>
+       <a href="/semua"> <button className="mb-4 text-blue-600 hover:underline">← Back</button></a>
         
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Detail Pesanan (OR001)</h2>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <img src="https://example.com/goat-image.jpg" alt="Kambing Boer" className="rounded-lg object-cover w-full h-full" />
+              <img src={images["5.jpg"]} alt="Kambing Boer" className="rounded-lg object-cover w-full h-full" />
             </div>
             <div className="col-span-2">
               <div className="grid grid-cols-2 gap-4">

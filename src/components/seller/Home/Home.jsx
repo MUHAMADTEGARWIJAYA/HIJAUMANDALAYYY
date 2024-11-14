@@ -53,7 +53,7 @@ const KambingFresh = () => {
         <div className="flex flex-col bg-blue-50 p-4 rounded-md w-1/2">
           <h2 className="font-semibold text-blue-700">Produk Dilihat</h2>
           <button
-            className="text-xl w-fit text-white mt-1 bg-green-600 border border-green-500 rounded-md px-4 py-2 hover:bg-green-400 hover:text-white transition duration-200"
+            className="text-xl w-fit text-white mt-1 bg-green-400 border border-green-500 rounded-md px-4 py-2 hover:bg-green-700 hover:text-white transition duration-200"
           >
             Tambah Produk
           </button>

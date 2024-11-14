@@ -48,12 +48,12 @@ const Send= () => {
         <table className="min-w-full bg-white">
           <thead>
             <tr>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Produk</th>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Total Pesanan</th>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Status</th>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Pembeli</th>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Jasa Kirim</th>
-              <th className="py-2 px-2 bg-teal-700 text-white text-left">Aksi</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Produk</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Total Pesanan</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Status</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Pembeli</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Jasa Kirim</th>
+              <th className="py-2 px-2 bg-teal-800 text-white text-left">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -68,7 +68,7 @@ const Send= () => {
                 <td className="py-4 px-2 text-left">{order.buyer}</td>
                 <td className="py-4 px-2 text-left">{order.deliveryService}</td>
                 <td className="py-4 px-2 text-left">
-                  <button className="bg-green-500 text-white px-2 py-1 rounded text-sm">Detail Pesanan</button>
+                  <button className="bg-green-400 text-white px-2 py-1 rounded text-sm hover:bg-green-700">Detail Pesanan</button>
                 </td>
               </tr>
             ))}

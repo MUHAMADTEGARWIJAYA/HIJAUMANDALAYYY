@@ -7,7 +7,7 @@ function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="flex flex-col space-y-2 p-4 bg-gray-100 max-w-6xl">
+    <div className="flex flex-col space-y-2 p-4 bg-white max-w-6xl">
       <h1 className="text-lg font-semibold">Pesanan Saya</h1>
       <div className="flex space-x-4 text-sm font-medium">
         <a href="/semua">

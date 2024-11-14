@@ -24,7 +24,7 @@ const StoreSettingsNavbar = () => {
               key={tab.name}
               className={`px-4 py-2 font-medium ${
                 activeTab === tab.name
-                  ? "text-black border-b-2 border-black"
+                  ? "text-blue-500 border-b-2 border-blue-500"
                   : "text-gray-500 hover:text-black"
               }`}
               onClick={() => setActiveTab(tab.name)}
