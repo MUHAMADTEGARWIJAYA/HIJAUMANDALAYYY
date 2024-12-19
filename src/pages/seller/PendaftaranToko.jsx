@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function PendaftaranToko() {
   return (
@@ -42,7 +43,7 @@ function PendaftaranToko() {
 
           {/* Input File untuk SKU */}
           <div>
-           <a href="/verifikasi"> <label className="block text-gray-700">Surat Keterangan Usaha (SKU)</label></a>
+            <label className="block text-gray-700">Surat Keterangan Usaha (SKU)</label>
             <input
               type="file"
               className="w-full p-3 border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
@@ -50,24 +51,14 @@ function PendaftaranToko() {
           </div>
           
           {/* Checkbox dan Tombol Lanjut */}
-          <div className="text-sm text-gray-600">
-            <input type="checkbox" className="mr-2" />
-            Dengan ini, Anda telah menyetujui{' '}
-            <a href="#" className="text-blue-500 underline">
-              Syarat & Ketentuan
-            </a>{' '}
-            serta{' '}
-            <a href="#" className="text-blue-500 underline">
-              Kebijakan Privasi
-            </a>{' '}
-            Pendaftaran Toko.
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
-          >
-            Lanjut
-          </button>
+          <Link to="/verifikasi">
+            <button
+              type="button"
+              className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
+            >
+              Lanjut
+            </button>
+          </Link>
         </form>
       </div>
     </div>
