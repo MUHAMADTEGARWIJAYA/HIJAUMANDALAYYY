@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/layout/Seller/StatistikLay.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1734613993678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1734613993678,
+            "name": "Commit-0",
+            "content": "import Footer from '../../components/Footer';\r\nimport NavSeller from '../../components/NavSeller';\r\nimport SidebarSeller from '../../components/SidebarSeller'\r\nimport Statistik from '../../components/seller/Statiktik/Statistik'\r\n\r\nconst HomeLayout = () => {\r\n    return (\r\n        <div className='bg-gray-100 min-h-screen flex flex-col'>\r\n            <NavSeller /> \r\n            \r\n            {/* <Outlet /> Halaman login akan dirender di sini */}\r\n            \r\n            \r\n            <div className=\"flex flex-1 p-4 gap-4\">\r\n                <SidebarSeller className=\"w-1/4\" /> \r\n                <div className=\"flex-1\">\r\n                <Statistik  /> \r\n                </div>\r\n            </div>\r\n          \r\n\r\n            <Footer />\r\n          \r\n        </div>\r\n    );\r\n};\r\n\r\nexport default HomeLayout;"
+        }
+    ]
+}

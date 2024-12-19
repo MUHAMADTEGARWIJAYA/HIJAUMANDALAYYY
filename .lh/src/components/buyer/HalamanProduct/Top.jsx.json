@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/buyer/HalamanProduct/Top.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1734613511530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1734613511530,
+            "name": "Commit-0",
+            "content": "import { useEffect, useState } from \"react\";\r\n\r\n  const FeaturedProducts = () => {\r\n    const [images, setImages] = useState({});\r\n  \r\n    useEffect(() => {\r\n      // Menggunakan import.meta.glob untuk memuat semua gambar dalam folder assets/imgs\r\n      const loadImages = async () => {\r\n        const importedImages = import.meta.glob('../../../assets/imgs/*.{png,jpg,jpeg}');\r\n        const imageEntries = await Promise.all(\r\n          Object.entries(importedImages).map(async ([path, importFunc]) => {\r\n            const module = await importFunc();\r\n            const fileName = path.split('/').pop(); // Dapatkan nama file saja\r\n            return [fileName, module.default];\r\n          })\r\n        );\r\n        setImages(Object.fromEntries(imageEntries));\r\n      };\r\n  \r\n      loadImages();\r\n    }, []);\r\n  \r\n  return (\r\n    <div className=\"bg-pink-100 min-h-96 mb-10\">\r\n      <div className=\"relative\">\r\n        <img\r\n          src={images[\"10.jpeg\"]} // Ganti dengan URL gambar kambing yang sesuai\r\n          alt=\"Background\"\r\n          className=\"w-full h-[400px] object-cover\"\r\n        />\r\n        <div className=\"absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-start px-8\">\r\n          <h1 className=\"text-4xl max-w-2xl md:text-4xl font-bold text-white mb-4\">\r\n            Mudah & Transparan! Kambing Langsung dari Peternak\r\n          </h1>\r\n          <p className=\"text-white text-lg md:text-1xl max-w-2xl\">\r\n            Akses langsung ke peternak, harga transparan, dan kualitas terjamin.\r\n            Pilih kambing untuk kebutuhan Anda hanya di sini!\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default FeaturedProducts;\r\n"
+        }
+    ]
+}

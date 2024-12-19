@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/buyer/Home/Product.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1734613403159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1734613403159,
+            "name": "Commit-0",
+            "content": "import { useState, useEffect } from 'react';\r\n\r\nconst products = [\r\n  { name: \"Kambing\", image: \"8.jpg\" },\r\n  { name: \"Daging Kambing\", image: \"daging-kambing.jpg\" },\r\n  { name: \"Gulai Kambing\", image: \"resep-gulai-kambing-sederhana.jpg\" },\r\n  { name: \"Tongseng Kambing\", image: \"Resep-Tongseng-kambing.jpg\" },\r\n  { name: \"Sate Kambing\", image: \"OIP (1).jpg\" },\r\n  { name: \"Susu Kambing\", image: \"OIP.jpg\" },\r\n];\r\n\r\nconst FeaturedProducts = () => {\r\n  const [images, setImages] = useState({});\r\n\r\n  useEffect(() => {\r\n    // Menggunakan import.meta.glob untuk memuat semua gambar dalam folder assets/imgs\r\n    const loadImages = async () => {\r\n      const importedImages = import.meta.glob('../../../assets/imgs/*.{png,jpg,jpeg}');\r\n      const imageEntries = await Promise.all(\r\n        Object.entries(importedImages).map(async ([path, importFunc]) => {\r\n          const module = await importFunc();\r\n          const fileName = path.split('/').pop(); // Dapatkan nama file saja\r\n          return [fileName, module.default];\r\n        })\r\n      );\r\n      setImages(Object.fromEntries(imageEntries));\r\n    };\r\n\r\n    loadImages();\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"bg-white  rounded-lg max-w-7xl mx-auto mt-8 \">\r\n      <div className=\"max-w-7xl mx-auto px-4 p-6 \">\r\n       <a href=\"detailproduk\"> <h2 className=\"text-xl font-bold text-gray-800 mb-6 \">Kategori Produk Unggulan</h2> </a>\r\n        <div className=\"grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4\">\r\n          {products.map((product, index) => (\r\n            <div key={index} className=\"flex flex-col items-center\">\r\n              {/* Cek apakah gambar tersedia di objek images */}\r\n              {images[product.image] && (\r\n                <img\r\n                  src={images[product.image]}\r\n                  alt={product.name}\r\n                  className=\"w-24 h-24 sm:w-32 sm:h-32 rounded-lg shadow-md object-cover\"\r\n                />\r\n              )}\r\n              <p className=\"text-center font-semibold text-gray-800 mt-2\">{product.name}</p>\r\n            </div>\r\n          ))}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default FeaturedProducts;\r\n"
+        }
+    ]
+}
